@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./Layout"; // Adjust path as needed
 import Home from "./Pages/Home_Page";
 import Expense from "./Pages/Expense";
 import Index from "./Pages/index";
@@ -18,7 +17,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 const App = () => {
   return (
     <Router>
-      <Layout>
         <Routes>
           {/* Public routes */}
           <Route path="/signin" element={<SignIn />} />
@@ -40,7 +38,6 @@ const App = () => {
           {/* Catch-all */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </Layout>
     </Router>
   );
 };

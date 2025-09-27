@@ -103,7 +103,7 @@ function Expense() {
     
 
     return (
-       <div className="w-screen h-screen flex justify-center items-center">
+       <div className="w-screen h-screen flex justify-center items-center"> 
             <div className="w-[30%] bg-[#fd3c4a] border-2 border-[#f5ebe0]  flex items-center justify-center flex-col rounded-[20px]">
 
                 <div className="w-full bg-[#fd3c4a] rounded-[20px]">

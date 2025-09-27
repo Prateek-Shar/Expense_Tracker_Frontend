@@ -8,6 +8,7 @@ import subscribe from "../images/benefits_icon.png";
 import lend from "../images/lend.png";
 import Footer from "../components/footer";
 import { useState, useEffect } from "react";
+import Navbar from "../components/navbar";
 
 const categoryImages: { [key: string]: string } = {
     Travel: travel_icon,
@@ -114,6 +115,10 @@ function Home() {
 
     return (
         <div className="flex flex-col justify-center items-center w-screen h-screen">
+            <div className="w-full">
+                <Navbar />
+            </div>
+
             <div className="bg-white border-[#f5ebe0] w-[35%] border-t-2 border-l-2 border-r-2 rounded-t-lg flex flex-col items-center p-2" >
                 <div className="w-[90%] flex justify-between items-center">
 

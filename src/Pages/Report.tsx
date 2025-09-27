@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import ExpenseDonutChart from "../components/Expense_chart";
 import IncomeDonutChart from "../components/Income_chart";
 import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 
 function Report() {
     interface Item {
@@ -135,6 +136,9 @@ function Report() {
 
     return (
         <div className="w-screen h-screen flex flex-col justify-center items-center">
+            <div className="w-full">
+                <Navbar />
+            </div>
             
             <div className="w-[35%] border-2 border-t-[#f5ebe0] border-l-[#f5ebe0] border-r-[#f5ebe0] border-b-0 bg-white flex justify-center items-center flex-col">
                 {/* Month + Chart Icon */}
