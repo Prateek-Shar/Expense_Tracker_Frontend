@@ -115,7 +115,7 @@ function Home() {
 
     return (
         <div className="flex flex-col justify-center items-center w-screen h-screen">
-            <div className="w-full">
+            <div className="w-full bg-amber-600">
                 <Navbar />
             </div>
 
