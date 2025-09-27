@@ -11,7 +11,6 @@ import Report from "./Pages/Report"
 import Footer from "./components/footer"
 import Navbar from "./components/navbar"
 import PageNotFound from "./Pages/Page_404";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 
 const App = () => {
@@ -24,16 +23,13 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/" element={<Index />} />
 
-          {/* Protected routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/expense" element={<Expense />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/lend" element={<Lend />} />
-            <Route path="/header" element={<Navbar />} />
-            <Route path="/footer" element={<Footer />} />
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/report" element={<Report />} />
-          </Route>
+          <Route path="/expense" element={<Expense />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/lend" element={<Lend />} />
+          <Route path="/header" element={<Navbar />} />
+          <Route path="/footer" element={<Footer />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/report" element={<Report />} />
 
           {/* Catch-all */}
           <Route path="*" element={<PageNotFound />} />
