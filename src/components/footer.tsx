@@ -40,7 +40,7 @@ function Footer() {
     }
 
     return (
-        <div className="w-screen flex justify-center pb-10 mb-2]]">
+        <div className="w-full flex justify-center">
             <div className="w-[35%] flex justify-center items-center border-2 border-t-0 border-l-[#f5ebe0] border-r-[#f5ebe0] border-b-[#f5ebe0] bg-white pt-6">
                 <div className="w-[100%] bg-[#fcfcfc] flex items-center justify-evenly mt-2">
 
@@ -54,38 +54,6 @@ function Footer() {
                         </div>	
                     </div>
 
-                    {/* <div className="w-[15%] flex justify-center items-center mt-8 mb-5 border-2">
-                        <div onMouseEnter={() => setTransactionImage(true)} onMouseLeave={() => setTransactionImage(false)} className="w-[90%] object-contain flex justify-center items-center flex-col">
-                            {transactionImage &&  (
-                                <img src={transaction} className="w-[40%] object-contain p-1 animate-bounce duration cursor-pointer"/>
-                            )}
-
-                            <p className={`text-[13px] font-bold transition-all duration-400 ${transactionImage ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Transactions</p>
-                        </div>
-                    </div> */}
-
-                    {/* <div className="w-[30%] flex justify-center items-center mt-8 mb-5">
-                        <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 w-[150px] h-[75px] bg-white rounded-b-full shadow-md z-10"/>
-                        <div onMouseEnter={() => setPlusDiv(true)} onMouseLeave={() => setPlusDiv(false)} className="w-[60%] object-contain flex justify-center items-center flex-col border-2">
-                        
-
-                        
-                        {plusDiv && (
-                            <div className="w-[100%] bg-[#f5ebe0] flex justify-center items-center rounded-lg">
-                                <div className="w-[40%] bg-[#f5ebe0] flex justify-center items-center rounded-lg p-1">
-                                    <img src={transaction_register} className="w-[80%] object-contain"/>
-                                </div>
-
-                                <div className="w-[40%] bg-[#f5ebe0] flex justify-center items-center rounded-lg p-1">
-                                    <img src={transaction_register} />
-                                </div>
-                            </div>
-                        )}
-
-                        <img src={plus} className="w-[30%] object-contain p-1"/>
-
-                        </div>
-                    </div> */}
 
 
 
@@ -121,7 +89,6 @@ function Footer() {
                     </div>
 
 
-                        
                     
                     <div className="w-[10%] flex justify-center items-center mt-8 mb-5">
                         <div onMouseEnter={() => setBudgetImage(true)} onMouseLeave={() => setBudgetImage(false)} className="w-[90%] object-contain flex justify-center items-center flex-col">
@@ -134,18 +101,6 @@ function Footer() {
                         
                         </div>
                     </div>
-
-                    {/* <div className="w-[10%] flex justify-center items-center mt-8 mb-5">
-                        <div onMouseEnter={() => setProfileImage(true)} onMouseLeave={() => setProfileImage(false)} className="w-[90%] object-contain flex justify-center items-center flex-col">
-
-                        {profileImage &&  (
-                            <img src={profile} className="w-[70%] object-contain p-1 animate-bounce duration cursor-pointer"/>
-                        )}
-
-                        <p className={`text-[15px] font-bold transition-all duration-400 ${profileImage ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Profile</p>
-                        
-                        </div>
-                    </div> */}
 
                 </div>
             </div>

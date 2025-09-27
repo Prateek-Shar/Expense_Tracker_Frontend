@@ -135,98 +135,148 @@ function Report() {
     }));
 
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-full flex flex-col justify-center items-center bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-x-hidden">
             <div className="w-full">
                 <Navbar />
             </div>
+
+            <div className="w-full flex items-center flex-col mt-25 mb-25">
             
-            <div className="w-[35%] border-2 border-t-[#f5ebe0] border-l-[#f5ebe0] border-r-[#f5ebe0] border-b-0 bg-white flex justify-center items-center flex-col">
-                {/* Month + Chart Icon */}
-                <div className="w-[90%] flex justify-between">
-                    {/* Month Selector */}
-                    <div className="w-[25%] relative flex bg-[#f1f1fa] m-2 rounded-[25px]" ref={MonthDiv}>
-                        <div className="w-[30%] flex justify-center items-center ml-2 ">
-                            <img src={arrow_down} onClick={handleMonthDiv} className="w-[90%] object-contain p-2 cursor-pointer" />
-                        </div>
-
-                        {showMonthDiv && (
-                            <div className="w-full absolute top-[52px] rounded-b-[10px] flex flex-col max-h-32 overflow-y-auto z-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] border-t-0">
-                                {months.map((month) => (
-                                    <div
-                                        key={month}
-                                        className="w-full p-2 bg-[#f1f1fa] hover:cursor-pointer "
-                                        onClick={() => handleMonthSelect(month)}
-                                    >
-                                        <p>{month}</p>
-                                    </div>
-                                ))}
+                <div className="w-[35%] border-2 border-t-[#f5ebe0] border-l-[#f5ebe0] border-r-[#f5ebe0] border-b-0 bg-white flex justify-center items-center flex-col">
+                    {/* Month + Chart Icon */}
+                    <div className="w-[90%] flex justify-between">
+                        {/* Month Selector */}
+                        <div className="w-[25%] relative flex bg-[#f1f1fa] m-2 rounded-[25px]" ref={MonthDiv}>
+                            <div className="w-[30%] flex justify-center items-center ml-2 ">
+                                <img src={arrow_down} onClick={handleMonthDiv} className="w-[90%] object-contain p-2 cursor-pointer" />
                             </div>
-                        )}
 
-                        {/* Display Selected Month */}
-                        <div className="w-[70%] p-2 flex items-center">
-                            <p className="text-[18px] font-medium">{monthName}</p>
+                            {showMonthDiv && (
+                                <div className="w-full absolute top-[52px] rounded-b-[10px] flex flex-col max-h-32 overflow-y-auto z-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] border-t-0">
+                                    {months.map((month) => (
+                                        <div
+                                            key={month}
+                                            className="w-full p-2 bg-[#f1f1fa] hover:cursor-pointer "
+                                            onClick={() => handleMonthSelect(month)}
+                                        >
+                                            <p>{month}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Display Selected Month */}
+                            <div className="w-[70%] p-2 flex items-center">
+                                <p className="text-[18px] font-medium">{monthName}</p>
+                            </div>
+                        </div>
+
+                        {/* Pie Chart Icon */}
+                        <div className="w-[10%] m-2 border-2 border-[#f1f1fa] rounded-[20px]">
+                            <img src={pie_chart} className="w-[90%] object-contain p-2" />
                         </div>
                     </div>
 
-                    {/* Pie Chart Icon */}
-                    <div className="w-[10%] m-2 border-2 border-[#f1f1fa] rounded-[20px]">
-                        <img src={pie_chart} className="w-[90%] object-contain p-2" />
+                    {/* Chart */}
+                    <div className="w-full flex justify-center p-2 mb-4">
+                        {showExpense ? (
+                            <ExpenseDonutChart data={chartData} />
+                        ) : (
+                            <IncomeDonutChart data={incomeChartData} />
+                        )}
                     </div>
-                </div>
+                    
 
-                {/* Chart */}
-                <div className="w-full flex justify-center p-2 mb-4">
-                    {showExpense ? (
-                        <ExpenseDonutChart data={chartData} />
-                    ) : (
-                        <IncomeDonutChart data={incomeChartData} />
+                    {/* Toggle Buttons */}
+                    <div className="bg-[#f1f1fa] w-[90%] flex justify-between items-center rounded-3xl">
+                        <div className="w-[30%] bg-[#f1f1fa] flex justify-center items-center rounded-4xl m-1">
+                            <button className={`w-[100%] rounded-[25px] p-3 text-black flex justify-center items-center cursor-pointer ${showExpense ? "bg-[#7f3dff] text-white" : "bg-[#f1f1fa]"}`}
+                                onClick={handleSelctToShowExpense}>Expenses</button>
+                        </div>
+                        <div className="w-[30%] flex justify-center items-center m-1 rounded-4xl">
+                            <button className="w-[100%] cursor-pointer p-3 rounded-[25px] focus:bg-[#7f3dff] focus:text-amber-50"
+                                onClick={handleSelectToShowIncome}>Income</button>
+                        </div>
+                    </div>
+
+                    {/* Expenses */}
+                    {items.length === 0 && showExpense ? (
+                        <div className="w-[90%] bg-[#caf0f8] rounded-4xl p-8 mt-8 mb-8 flex justify-center items-center">
+                            <p className="text-lg text-gray-500">No Transaction Found</p>
+                        </div>
+                    ) : showExpense && (
+                        <>
+                            {items.map((item) => {
+                                const colorClass = {
+                                    Shopping: "bg-orange-500",
+                                    Food: "bg-green-500",
+                                    Travel: "bg-blue-500",
+                                    Bills: "bg-red-500",
+                                    Other: "bg-gray-400",
+                                }[item.category] || "bg-gray-400";
+
+                                const barWidth = totalExpense ? Math.min((item.amount / totalExpense) * 100, 100) : 0;
+
+                                return (
+                                    <div key={`${item.category}-${item.date}`} className="w-[90%] flex flex-col m-2 items-center">
+                                        <div className="w-[90%] m-2 flex flex-col">
+                                            <div className="w-full flex justify-between">
+                                                <div className="w-[30%] border-2 mt-2 flex bg-[#fcfcfc] rounded-3xl border-[#f1f1fa]">
+                                                    <div className={`w-[10%] ${colorClass} rounded-4xl p-2 m-2 border-2`} />
+                                                    <div className="w-[80%] flex items-center">
+                                                        <p>{item.category}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="w-[15%] mr-2 flex justify-center items-center mt-2">
+                                                    <p className="text-red-500 font-medium">-{item.amount}</p>
+                                                </div>
+                                            </div>
+                                            <div className="w-[98%] border-2 border-[#f1f1fa] bg-[#f1f1fa] rounded-3xl mb-2 mt-1 ml-1">
+                                                <div className={`h-2 rounded-2xl ${colorClass}`} style={{ width: `${barWidth}%` }} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </>
                     )}
-                </div>
-                
 
-                {/* Toggle Buttons */}
-                <div className="bg-[#f1f1fa] w-[90%] flex justify-between items-center rounded-3xl">
-                    <div className="w-[30%] bg-[#f1f1fa] flex justify-center items-center rounded-4xl m-1">
-                        <button className={`w-[100%] rounded-[25px] p-3 text-black flex justify-center items-center cursor-pointer ${showExpense ? "bg-[#7f3dff] text-white" : "bg-[#f1f1fa]"}`}
-                            onClick={handleSelctToShowExpense}>Expenses</button>
-                    </div>
-                    <div className="w-[30%] flex justify-center items-center m-1 rounded-4xl">
-                        <button className="w-[100%] cursor-pointer p-3 rounded-[25px] focus:bg-[#7f3dff] focus:text-amber-50"
-                            onClick={handleSelectToShowIncome}>Income</button>
-                    </div>
-                </div>
-
-                {/* Expenses */}
-                {items.length === 0 && showExpense ? (
-                    <div className="w-[90%] bg-[#caf0f8] rounded-4xl p-8 mt-8 mb-8 flex justify-center items-center">
-                        <p className="text-lg text-gray-500">No Transaction Found</p>
-                    </div>
-                ) : showExpense && (
+                    {/* Incomes */}
+                {showIncome && (
                     <>
-                        {items.map((item) => {
-                            const colorClass = {
-                                Shopping: "bg-orange-500",
-                                Food: "bg-green-500",
-                                Travel: "bg-blue-500",
-                                Bills: "bg-red-500",
-                                Other: "bg-gray-400",
-                            }[item.category] || "bg-gray-400";
+                    {indiWalletAmt.length === 0 ? (
+                        <div className="w-[90%] bg-[#caf0f8] rounded-4xl p-8 mt-8 mb-8 flex justify-center items-center">
+                            <p className="text-lg text-gray-500">No Transaction Found</p>
+                        </div>
+                    ) : (
+                        indiWalletAmt.map((entry) => {
 
-                            const barWidth = totalExpense ? Math.min((item.amount / totalExpense) * 100, 100) : 0;
+                            if (!entry.Income_As || entry.Amount === undefined || entry.Amount === null) {
+                            console.warn("Skipping entry due to missing key fields", entry);
+                            return null;
+                            }   
+
+                            const colorClass = {
+                                Passive_Income: "bg-orange-500",
+                                Salary: "bg-green-500",
+                                Stipend: "bg-blue-500",
+                                Other: "bg-gray-400",
+                            }[entry.Income_As] || "bg-gray-400";
+
+                            const barWidth = walletAmt ? Math.min((entry.Amount / walletAmt) * 100, 100) : 0;
 
                             return (
-                                <div key={`${item.category}-${item.date}`} className="w-[90%] flex flex-col m-2 items-center">
+                                <div key={`${entry.Income_As}-${entry.Amount}`} className="w-[90%] flex flex-col m-2 items-center">
                                     <div className="w-[90%] m-2 flex flex-col">
                                         <div className="w-full flex justify-between">
                                             <div className="w-[30%] border-2 mt-2 flex bg-[#fcfcfc] rounded-3xl border-[#f1f1fa]">
                                                 <div className={`w-[10%] ${colorClass} rounded-4xl p-2 m-2 border-2`} />
                                                 <div className="w-[80%] flex items-center">
-                                                    <p>{item.category}</p>
+                                                    <p>{entry.Income_As}</p>
                                                 </div>
                                             </div>
                                             <div className="w-[15%] mr-2 flex justify-center items-center mt-2">
-                                                <p className="text-red-500 font-medium">-{item.amount}</p>
+                                                <p className="text-green-600 font-medium">+{entry.Amount}</p>
                                             </div>
                                         </div>
                                         <div className="w-[98%] border-2 border-[#f1f1fa] bg-[#f1f1fa] rounded-3xl mb-2 mt-1 ml-1">
@@ -235,63 +285,19 @@ function Report() {
                                     </div>
                                 </div>
                             );
-                        })}
+                        })
+                    )}
                     </>
-                )}
+                    )}
 
-                {/* Incomes */}
-               {showIncome && (
-                <>
-                {indiWalletAmt.length === 0 ? (
-                    <div className="w-[90%] bg-[#caf0f8] rounded-4xl p-8 mt-8 mb-8 flex justify-center items-center">
-                        <p className="text-lg text-gray-500">No Transaction Found</p>
-                    </div>
-                ) : (
-                    indiWalletAmt.map((entry) => {
+                </div>
+                
+                <div className="w-full">
+                    <Footer />
+                </div>
 
-                        if (!entry.Income_As || entry.Amount === undefined || entry.Amount === null) {
-                        console.warn("Skipping entry due to missing key fields", entry);
-                        return null;
-                        }   
-
-                        const colorClass = {
-                            Passive_Income: "bg-orange-500",
-                            Salary: "bg-green-500",
-                            Stipend: "bg-blue-500",
-                            Other: "bg-gray-400",
-                        }[entry.Income_As] || "bg-gray-400";
-
-                        const barWidth = walletAmt ? Math.min((entry.Amount / walletAmt) * 100, 100) : 0;
-
-                        return (
-                            <div key={`${entry.Income_As}-${entry.Amount}`} className="w-[90%] flex flex-col m-2 items-center">
-                                <div className="w-[90%] m-2 flex flex-col">
-                                    <div className="w-full flex justify-between">
-                                        <div className="w-[30%] border-2 mt-2 flex bg-[#fcfcfc] rounded-3xl border-[#f1f1fa]">
-                                            <div className={`w-[10%] ${colorClass} rounded-4xl p-2 m-2 border-2`} />
-                                            <div className="w-[80%] flex items-center">
-                                                <p>{entry.Income_As}</p>
-                                            </div>
-                                        </div>
-                                        <div className="w-[15%] mr-2 flex justify-center items-center mt-2">
-                                            <p className="text-green-600 font-medium">+{entry.Amount}</p>
-                                        </div>
-                                    </div>
-                                    <div className="w-[98%] border-2 border-[#f1f1fa] bg-[#f1f1fa] rounded-3xl mb-2 mt-1 ml-1">
-                                        <div className={`h-2 rounded-2xl ${colorClass}`} style={{ width: `${barWidth}%` }} />
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })
-                )}
-                </>
-                )}
 
             </div>
-
-            <Footer />
-
 
         </div>
     );

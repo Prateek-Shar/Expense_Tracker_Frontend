@@ -114,14 +114,14 @@ function Home() {
     };
 
     return (
-        <div className="flex flex-col justify-center w-full h-screen bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-y-hidden">
-            <div className="w-full bg-amber-600">
+        <div className="flex flex-col justify-center w-full h-full bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-x-hidden">
+            <div className="w-full">
                 <Navbar />
             </div>
 
-            <div className="w-full flex flex-col mt-5">
+            <div className="w-full flex flex-col items-center mt-22 mb-30">
 
-                <div className="bg-white border-[#f5ebe0] w-[35%] border-t-2 border-l-2 border-r-2 rounded-t-lg flex flex-col items-center p-2">
+                <div className="bg-white border-[#f5ebe0] w-[35%] border-t-2 border-l-2 border-r-2 rounded-t-lg flex flex-col items-center p-2 mt-5">
                     <div className="w-[90%] flex justify-between items-center">
 
                         {/* Avatar */}
