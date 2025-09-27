@@ -1,13 +1,8 @@
 import logo1 from "../images/logo1.png";
-// import { useState } from "react";
 import bg_image from "../images/bg_image.png"
 import { useNavigate } from "react-router-dom";
 
 function Index() {
-    // const [newProduct , setNewProduct] = useState({
-    //     Username: "",
-    //     password: "",
-    // });
 
     const navigate = useNavigate()
 

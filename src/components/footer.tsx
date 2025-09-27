@@ -1,14 +1,11 @@
 import home from "../images/home.png";
 import plus from "../images/plus.png";
 import budget from "../images/budget.png";
-import profile from "../images/user.png";
 import add_expense from "../images/add_expense.png";
 import lend from "../images/lend.png";
 import wavy_bg from "../images/wavy_bg.jpg"; 
 import wallet from "../images/wallet.png";
 import { useNavigate } from "react-router-dom";
-import transaction_register from "../images/expenses.png";
-import transaction from "../images/transactional.png";
 
 import { useState } from "react";
 
@@ -16,11 +13,7 @@ function Footer() {
 
     const [image , setImage] = useState(false);
 
-    const [transactionImage , setTransactionImage] = useState(false);
-
     const  [budgetImage , setBudgetImage] = useState(false);
-
-    const [profileImage , setProfileImage] = useState(false);
 
     const [plusDiv , setPlusDiv] = useState(false);
 

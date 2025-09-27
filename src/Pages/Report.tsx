@@ -1,6 +1,6 @@
 import arrow_down from "../images/arrow-down.png";
 import pie_chart from "../images/pie_chart.png";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import ExpenseDonutChart from "../components/Expense_chart";
 import IncomeDonutChart from "../components/Income_chart";
 import Footer from "../components/footer";
@@ -20,7 +20,6 @@ function Report() {
 
     const [walletAmt, setWalletAmt] = useState<number | null>(null);
     const [indiWalletAmt, setIndiWalletAmt] = useState<Wallet_desc[]>([]);
-    const [totalWalletAmt, setTotalWalletAmt] = useState<number | null>(null);
     const [totalExpense, setTotalExpense] = useState();
     const [items, setItems] = useState<Item[]>([]);
     const [showMonthDiv, setShowMonthDiv] = useState(false);

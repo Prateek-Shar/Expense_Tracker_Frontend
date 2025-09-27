@@ -30,17 +30,16 @@ function Home() {
     const [items, setItems] = useState<Item[]>([]);
     const [totalExpense, setTotalExpense] = useState<number | null>(null);
     const [totalLend, setTotalLend] = useState<number | null>(null);
-    const [totalWalletAmt, setTotalWalletAmt] = useState<number | null>(null);
     const [walletAmt, setWalletAmt] = useState<number | null>(null);
     const [showMonthDiv, setShowMonthDiv] = useState(false);
     const [monthText, setMonthText] = useState<string>("January");
-    const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
+    const [selectedYear] = useState<number>(new Date().getFullYear());
 
 
     
 
     useEffect(() => {
-        fetch("http://localhost:8080/test")
+        fetch("https://expense-tracker-backend-ibme.onrender.com/test")
             .then((res) => res.json())
             .then((data) => {
                 if (Array.isArray(data.definition)) {
@@ -53,15 +52,6 @@ function Home() {
     }, []);
 
 
-    useEffect(() => {
-        fetch("http://localhost:8080/walletamt")
-            .then((res) => res.json())
-            .then((data) => {
-                setTotalWalletAmt(data.totalWalletAmt);
-                console.log("Wallet Amount:", data.totalWalletAmt);
-            })
-            .catch((err) => console.error("Fetch error:", err));
-    }, []);
 
     const handleDropdownClick = () => {
         setShowMonthDiv((prev) => !prev);

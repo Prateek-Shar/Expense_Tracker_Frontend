@@ -1,5 +1,4 @@
 import rupee from "../images/rupee.png";
-import clip from "../images/clip.png";
 import transaction from "../images/fromTo.jpg"
 import back from "../images/reply.png"
 import { useState } from "react";
