@@ -114,7 +114,7 @@ function Home() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center w-screen h-screen">
+        <div className="flex flex-col justify-center items-center w-screen h-screen bg-blue-600">
             <div className="w-full bg-amber-600">
                 <Navbar />
             </div>
