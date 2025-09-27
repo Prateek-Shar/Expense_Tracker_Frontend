@@ -115,11 +115,11 @@ function Home() {
 
     return (
         <div className="flex flex-col justify-center w-screen h-screen bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-y-hidden">
-            <div className="w-full bg-amber-600">
+            <div className="w-full bg-amber-600 mt-0">
                 <Navbar />
             </div>
 
-            <div className="w-[35%] flex flex-col">
+            <div className="w-[35%] flex flex-col mt-5">
 
                 <div className="bg-white border-[#f5ebe0] w-full border-t-2 border-l-2 border-r-2 rounded-t-lg flex flex-col items-center p-2">
                     <div className="w-[90%] flex justify-between items-center">
