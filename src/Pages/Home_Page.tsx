@@ -114,7 +114,7 @@ function Home() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center w-screen h-screen bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-y-hidden">
+        <div className="flex flex-col items-center w-screen h-screen bg-linear-to-r from-[#00b4d8] to-[#caf0f8] overflow-y-hidden">
             <div className="w-full bg-amber-600">
                 <Navbar />
             </div>
