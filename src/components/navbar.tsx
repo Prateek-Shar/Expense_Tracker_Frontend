@@ -23,11 +23,11 @@ const Navbar = () => {
       <div className="w-[43%] flex flex-row-reverse  items-center">
 
         <div className="w-[20%] flex bg-red-600 mr-10 rounded-2xl hover:cursor-pointer" onClick={handleClickToLogout}>
-          <div className="w-[20%] p-1 flex justify-center items-center mt-2 mb-2">
+          <div className="w-[20%] p-1 flex justify-center items-center mt-1 mb-1">
             <img src={log_out} />
           </div>
 
-          <div className="w-[80%] mt-2 mb-2 flex items-center justify-center">
+          <div className="w-[80%] mt-1 mb-1 flex items-center justify-center">
             <p className="font-Poppins">Sign Out</p>
           </div>
         </div>
