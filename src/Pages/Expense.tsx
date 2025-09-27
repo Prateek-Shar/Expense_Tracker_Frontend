@@ -1,5 +1,4 @@
 import rupee from "../images/rupee.png";
-import clip from "../images/clip.png";
 import back from "../images/reply.png";
 import { useState } from "react";
 import { useNavigate }  from "react-router-dom";

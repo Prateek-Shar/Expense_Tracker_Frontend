@@ -23,7 +23,7 @@ function Report() {
     const [totalExpense, setTotalExpense] = useState();
     const [items, setItems] = useState<Item[]>([]);
     const [showMonthDiv, setShowMonthDiv] = useState(false);
-    const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
+    const [selectedYear] = useState<number>(new Date().getFullYear());
     const [monthName, setMonthName] = useState("January");
     const [showIncome, setShowIncome] = useState(false);
     const [showExpense, setShowExpense] = useState(true);
