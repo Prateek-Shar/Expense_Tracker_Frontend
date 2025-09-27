@@ -72,7 +72,7 @@ function Wallet() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/wallet", {
+      const res = await fetch("https://expense-tracker-backend-ibme.onrender.com/wallet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

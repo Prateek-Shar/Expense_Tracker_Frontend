@@ -81,7 +81,7 @@ function Expense() {
     const formToSend = { ...form };
     
     try {
-        const res = await fetch("http://localhost:8080/expenses", {
+        const res = await fetch("https://expense-tracker-backend-ibme.onrender.com/expenses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formToSend),

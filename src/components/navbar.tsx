@@ -1,6 +1,13 @@
 import log_out from "../images/log_out.png"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const navigate = useNavigate()
+
+  const handleClickToLogout = () => {
+    navigate("/")
+  } 
 
   return (
  
@@ -15,7 +22,7 @@ const Navbar = () => {
 
       <div className="w-[43%] flex flex-row-reverse  items-center">
 
-        <div className="w-[20%] flex bg-red-600 mr-10 rounded-2xl">
+        <div className="w-[20%] flex bg-red-600 mr-10 rounded-2xl hover:cursor-pointer" onClick={handleClickToLogout}>
           <div className="w-[20%] p-1 flex justify-center items-center mt-2 mb-2">
             <img src={log_out} />
           </div>

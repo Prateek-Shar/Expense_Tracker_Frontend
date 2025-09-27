@@ -87,7 +87,7 @@ function Home() {
         };
         const month = monthMap[monthName];
 
-        fetch(`http://localhost:8080/expensesByMonth?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/expensesByMonth?month=${month}&year=${year}`)
             .then(res => res.json())
             .then(data => setItems(data.expenses || []))
             .catch(err => console.error("Fetch error:", err));
@@ -102,19 +102,19 @@ function Home() {
         const month = monthMap[monthName];
 
       
-        fetch(`http://localhost:8080/totalExpense?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/totalExpense?month=${month}&year=${year}`)
             .then(res => res.json())
             .then(data => setTotalExpense(data.totalExpense))
             .catch(err => console.error("Fetch error:", err));
 
 
-        fetch(`http://localhost:8080/totalLend?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/totalLend?month=${month}&year=${year}`)
             .then(res => res.json())
             .then(data => setTotalLend(data.totalLent))
             .catch(err => console.error("Fetch error:", err));
         
    
-        fetch(`http://localhost:8080/walletamt?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/walletamt?month=${month}&year=${year}`)
             .then((res) => res.json())
             .then((data) => {
                 setWalletAmt(data.totalWalletAmt);

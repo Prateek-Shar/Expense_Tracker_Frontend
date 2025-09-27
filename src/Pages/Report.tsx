@@ -1,6 +1,6 @@
 import arrow_down from "../images/arrow-down.png";
 import pie_chart from "../images/pie_chart.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ExpenseDonutChart from "../components/Expense_chart";
 import IncomeDonutChart from "../components/Income_chart";
 import Footer from "../components/footer";
@@ -29,6 +29,8 @@ function Report() {
     const [showIncome, setShowIncome] = useState(false);
     const [showExpense, setShowExpense] = useState(true);
 
+    const MonthDiv = useRef<HTMLDivElement>(null)
+
     const months = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -48,7 +50,7 @@ function Report() {
 
         const month = monthMap[monthName];
 
-        fetch(`http://localhost:8080/expensesByMonth?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/expensesByMonth?month=${month}&year=${year}`)
             .then(res => res.json())
             .then(data => {
                 setItems(data.expenses)
@@ -56,7 +58,7 @@ function Report() {
             })
         .catch(err => console.error("Fetch error:", err));  
 
-        fetch(`http://localhost:8080/IncomeByMonth?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/IncomeByMonth?month=${month}&year=${year}`)
             .then(res => res.json())
             .then(data => {
                 setIndiWalletAmt(data.wallet)
@@ -64,7 +66,7 @@ function Report() {
             })
         .catch(err => console.error("Fetch error:", err));
 
-        fetch(`http://localhost:8080/walletamt?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/walletamt?month=${month}&year=${year}`)
             .then((res) => res.json())
             .then((data) => {
                 setWalletAmt(data.totalWalletAmt);
@@ -72,7 +74,7 @@ function Report() {
             })
         .catch((err) => console.error("Fetch error:", err));
 
-        fetch(`http://localhost:8080/totalExpense?month=${month}&year=${year}`)
+        fetch(`https://expense-tracker-backend-ibme.onrender.com/totalExpense?month=${month}&year=${year}`)
             .then((res) => res.json())
             .then((data) => {
                 setTotalExpense(data.totalExpense);
@@ -84,6 +86,11 @@ function Report() {
 
     const handleMonthDiv = () => {
         setShowMonthDiv((prev) => !prev);
+
+        if(MonthDiv.current) {
+            MonthDiv.current.style.borderBottomLeftRadius = "0px"
+            MonthDiv.current.style.borderBottomRightRadius = "0px"
+        }
     };
 
     const handleSelectToShowIncome = () => {
@@ -134,7 +141,7 @@ function Report() {
                 {/* Month + Chart Icon */}
                 <div className="w-[90%] flex justify-between">
                     {/* Month Selector */}
-                    <div className="w-[25%] relative flex bg-[#f1f1fa] m-2 rounded-[25px]">
+                    <div className="w-[25%] relative flex bg-[#f1f1fa] m-2 rounded-[25px]" ref={MonthDiv}>
                         <div className="w-[30%] flex justify-center items-center ml-2 ">
                             <img src={arrow_down} onClick={handleMonthDiv} className="w-[90%] object-contain p-2 cursor-pointer" />
                         </div>

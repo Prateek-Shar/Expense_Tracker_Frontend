@@ -44,7 +44,7 @@ function SignUp() {
         }
 
         try {
-            const res = await fetch("/api/newUser", {
+            const res = await fetch("https://expense-tracker-backend-ibme.onrender.com/newUser", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),

@@ -29,7 +29,7 @@ function Lend() {
             e.preventDefault();
           
             try {
-              const res = await fetch("http://localhost:8080/lend", {
+              const res = await fetch("https://expense-tracker-backend-ibme.onrender.com/lend", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
