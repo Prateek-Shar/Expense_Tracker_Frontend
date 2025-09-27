@@ -57,7 +57,7 @@ function Footer() {
                                 <img src={home} className="w-[40%] object-contain p-1 animate-bounce duration cursor-pointer" onClick={handleClickToHome}/>
                             )}
 
-                            <p className={`text-[15px] font-bold transition-all duration-400 ${image ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Home</p>
+                            <p className={`text-[15px] font-bold transition-all duration-400 font-Poppins ${image ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Home</p>
                         </div>	
                     </div>
 
@@ -137,7 +137,7 @@ function Footer() {
                                 <img src={budget} className="w-[70%] object-contain p-1 animate-bounce duration cursor-pointer" onClick={handleClickToReport}/>
                             )}
 
-                            <p className={`text-[15px] font-bold transition-all duration-400 ${budgetImage ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Budget</p>
+                            <p className={`text-[15px] font-bold transition-all duration-400 font-Poppins ${budgetImage ? "-translate-y-2" : "translate-y-0"} cursor-pointer`}>Budget</p>
                         
                         </div>
                     </div>

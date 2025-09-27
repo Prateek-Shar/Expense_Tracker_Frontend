@@ -6,6 +6,7 @@ import drop_down from "../images/drop-down.png";
 import default_expense from "../images/default_expense.png";
 import subscribe from "../images/benefits_icon.png";
 import lend from "../images/lend.png";
+import Footer from "../components/footer";
 import { useState, useEffect } from "react";
 
 const categoryImages: { [key: string]: string } = {
@@ -122,7 +123,7 @@ function Home() {
     };
 
     return (
-        <div className="flex justify-center w-screen pt-10">
+        <div className="flex flex-col justify-center items-center w-screen h-screen">
             <div className="bg-white border-[#f5ebe0] w-[35%] border-t-2 border-l-2 border-r-2 rounded-t-lg flex flex-col items-center p-2" >
                 <div className="w-[90%] flex justify-between items-center">
 
@@ -135,18 +136,18 @@ function Home() {
                     <div className="w-[30%] m-2 flex justify-center items-center relative rounded-t-[10px] bg-[#fcfcfc] border-2 border-[#fcfcfc] ">
                         {showMonthDiv ? (
                             <div className="w-full absolute top-full border-2 border-[#fcfcfc] rounded-b-[10px] flex flex-col max-h-32 overflow-y-auto z-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("January")}>January</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("February")}>February</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("March")}>March</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("April")}>April</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("May")}>May</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("June")}>June</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("July")}>July</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("August")}>August</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("September")}>September</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("October")}>October</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("November")}>November</p></div>
-                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer"><p onClick={() => handleMonthSelect("December")}>December</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("January")}>January</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("February")}>February</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("March")}>March</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("April")}>April</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("May")}>May</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("June")}>June</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("July")}>July</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("August")}>August</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("September")}>September</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("October")}>October</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("November")}>November</p></div>
+                                <div className="w-full p-1 bg-[#fcfcfc] hover:cursor-pointer font-Poppins"><p onClick={() => handleMonthSelect("December")}>December</p></div>
                             </div>
                         ) : null}
                         <div className="w-[70%] flex justify-center items-center p-[10px]">
@@ -207,11 +208,11 @@ function Home() {
 
                 {/* Recent Transactions */}
                 <div className="w-[90%] bg[#ffffff] mt-10">
-                    <p className="text-[24px] font-medium text-amber-500 p-2">Recent Transactions -</p>
+                    <p className="text-[20px] text-amber-500 p-2 font-Poppins">Recent Transactions -</p>
 
                     {items.length === 0 ? (
-                        <div className="w-full flex justify-center rounded-4xl items-center p-8 mt-2 bg-[#caf0f8]">
-                            <p className="text-lg text-gray-500 font-po">No transactions found for this month.</p>
+                        <div className="w-full flex justify-center rounded-4xl items-center p-8 mt-5 mb-2 bg-[#caf0f8]">
+                            <p className="text-lg text-gray-500 font-Poppins">No transactions found for this month.</p>
                         </div>
                     ) : (
                         items.map((item, index) => {
@@ -256,6 +257,8 @@ function Home() {
                 </div>
 
             </div>
+
+            <Footer />
         </div>
     );
 }

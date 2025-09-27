@@ -144,7 +144,7 @@ function Expense() {
                                 />
 
                                 {showSuggestions && suggestions.length > 0 && (
-                                    <div className="absolute top-[50px] mt-1 w-full border-2 border-[#f3f3fb] border-t-0  bg-white rounded-lg  z-10 max-h-40 overflow-y-auto">
+                                    <div className="absolute top-[50px] mt-1 w-full border-2 border-[#f3f3fb] border-t-0 bg-white  z-10 max-h-40 overflow-y-auto">
                                         {suggestions.map((suggestion) => (
                                             <div
                                                 key={suggestion}
@@ -176,7 +176,7 @@ function Expense() {
                                 className="w-[100%] border-2 border-[#f3f3fb] bg-white rounded-lg p-4 focus:outline-0" required />
 
                                 {showTransactionSuggestion && suggestiontransaction.length > 0 && (
-                                    <div className="absolute top-[50px] mt-1 w-full border-2 border-[#f3f3fb] border-t-0  bg-white rounded-lg  z-10 max-h-40 overflow-y-auto">
+                                    <div className="absolute top-[50px] mt-1 w-full border-2 border-[#f3f3fb] border-t-0  bg-white rounded-b-lg  z-10 max-h-40 overflow-y-auto">
                                         {suggestiontransaction.map((suggestiontransaction) => (
                                             <div
                                                 key={suggestiontransaction}
