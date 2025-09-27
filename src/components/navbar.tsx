@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
  
-    <div className="w-screen flex">
+    <div className="w-full flex">
 
       <div className="w-[57%] flex flex-row-reverse">
           <div className="border-[#0077b6] w-[21%] rounded-[20px] flex items-center justify-center border-2 m-1">
