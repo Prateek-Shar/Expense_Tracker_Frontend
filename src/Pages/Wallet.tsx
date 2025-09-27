@@ -80,7 +80,6 @@ function Wallet() {
 
       if (!res.ok) throw new Error("Request failed");
 
-      const data = await res.json();
       alert("Expense added successfully!");
       setForm({ ...defaultForm, date: form.date });
       setShowBankOptions(false);
