@@ -95,7 +95,7 @@ function Wallet() {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-screen h-screen bg-linear-to-r from-[#90e0ef] to-[#ade8f4] flex justify-center items-center">
       <div className="w-[30%] bg-[#7f3dff] border-2 border-[#f5ebe0] flex flex-col items-center justify-center rounded-[20px]">
         <div className="w-full bg-[#7f3dff] rounded-[20px]">
           <div className="w-full cursor-pointer rounded-[20px]">

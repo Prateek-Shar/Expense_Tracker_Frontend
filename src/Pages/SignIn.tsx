@@ -67,8 +67,13 @@ function SignIn() {
             <div className="border-[#2b7fff] border-2 w-[30%] rounded-lg flex flex-col items-center bg-white bg-opacity-80 justify-evenly">
 
                 <form onSubmit={ValidateLogin} method="POST" className="flex flex-col items-center justify-center w-full overflow-hidden">
-                    <div className="w-[90%] rounded-lg "> 
-                        <input type="text" placeholder="Enter Name" name="UserName" className="w-[100%] p-4 mt-4 border-2 border-[#f1f1fa] rounded-lg focus:outline-none" onChange={handleChange} value={form.UserName} required />
+
+                    <div className="w-full flex justify-center mt-2">
+                        <p className="font-Poppins text-2xl py-2">Sign In..</p>
+                    </div>
+
+                    <div className="w-[90%] rounded-lg mt-4"> 
+                        <input type="text" placeholder="Username" name="UserName" className="w-[100%] p-4 border-2 border-[#f1f1fa] rounded-lg focus:outline-none" autoComplete="off" onChange={handleChange} value={form.UserName} required />
                     </div>
 
                     <div className="w-[90%] rounded-lg border-2 border-[#f1f1fa] mt-4 flex">
@@ -76,8 +81,9 @@ function SignIn() {
                             <input
                                 type={showDiv ? "text" : "password"}
                                 placeholder="Password"
+                                autoComplete="off"
                                 name="password"
-                                className="w-[100%] p-3 rounded-lg mb-2 focus:outline-none"
+                                className="w-full p-4 rounded-lg focus:outline-none"
                                 onChange={handleChange}
                                 value={form.password}
                                 required
@@ -90,7 +96,7 @@ function SignIn() {
                         >
                             <img
                                 src={showDiv ? eye_open : eye_close}
-                                className="object-contain w-[70%]"
+                                className="object-contain w-[50%]"
                                 alt={showDiv ? "Hide password" : "Show password"}
                             />
                         </div>
@@ -104,8 +110,8 @@ function SignIn() {
                         </div>
                     </div> */}
 
-                    <div className="w-[90%] mb-4 mt-3 flex justify-center">
-                        <button type="submit" className="bg-blue-500 w-[60%] text-white rounded-[15px] p-4 cursor-pointer">Login</button>
+                    <div className="w-[30%] bg-blue-500 my-4 flex justify-center rounded-[15px]">
+                        <button type="submit" className=" text-white p-2.5 cursor-pointer">Login</button>
                     </div>
                 </form>
 
@@ -118,13 +124,13 @@ function SignIn() {
                     <div className="p-3 text-[20px]">Sign Up With Google</div>
                 </div> */}
 
-                <div className="border-[#eee5ff] w-[90%] flex border-2 mt-3 mb-8">
-                    <div className="w-[65%] text-[#91919f] p-2  flex items-center flex-row-reverse">
+                <div className="w-[90%] flex my-5">
+                    <div className="w-[65%] text-[#91919f] flex items-center flex-row-reverse">
                         <p>Don't have any account ? </p>
                     </div>
 
-                    <div className="w-[35%] ">
-                        <button type="submit" className="pt-2 pb-2 w-[100%]  text-[#7f3dff] rounded-md cursor-pointer flex items-center" onClick={handleClicktoSignUp}>Sign Up</button>
+                    <div className="w-[35%] ml-2">
+                        <button type="submit" className="text-[#7f3dff] rounded-md cursor-pointer flex items-center" onClick={handleClicktoSignUp}>Sign Up</button>
                     </div>
                 </div>
 

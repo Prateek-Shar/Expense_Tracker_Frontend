@@ -52,7 +52,7 @@ function Lend() {
 
     return (
         
-        <div className="w-screen h-screen bg-linear-to-r from-[#90e0ef] to-[#ade8f4]] flex justify-center items-center">
+        <div className="w-screen h-screen bg-linear-to-r from-[#90e0ef] to-[#ade8f4] flex justify-center items-center">
             <div className="w-[30%] border-2 border-[#f5ebe0] bg-[#0077ff] flex items-center justify-center flex-col rounded-[20px]">
 
                 <div className="w-[100%] bg-[#0077ff] mt-2 rounded-[20px]">
